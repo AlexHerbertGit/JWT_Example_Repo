@@ -24,10 +24,15 @@ function authFail(res, callback) {
         return res.end(notFound)
 }
 
+//Generate a GUID
+function generateGUID() {
+    return new Date().getTime()
+} 
+
 //Create a JWT
 
 function generateToken(req) {
     //By default it will expire the token after 7 days
     //The value of 'exp' needs to be in seconds
-    
+
 }
