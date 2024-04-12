@@ -45,3 +45,21 @@ function generateToken(req, GUID, opts) {
     
     return token;
 }
+
+//Store token
+function generateAndStoreToken(req, opts) {
+    const GUID = generateGUID()
+
+    const token = generateToken(req, GUID, opts)
+
+    let record = {
+        "valid": true, 
+        "created": new Date().getTime()
+    }
+
+    db.put(GUID, JSON.stringify(record), function(err){
+        console.log(record)
+    })
+    return token;
+}
+
